@@ -1,0 +1,26 @@
+{
+  "name": "proxy-for-cyclos4-ui",
+  "version": "1.0.0",
+  "description": "Allow the 'cyclos4-ui' to run with the 'cyclos-docker-adhara' and avoid CORS issues (via the proxy mechanism).",
+  "main": "index.js",
+  "dependencies": {
+    "cyclos4-ui": "git+ssh://git@github.com/cyclosproject/cyclos4-ui.git",
+    "express": "^4.16.3",
+    "request": "^2.87.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "npm --prefix ./node_modules/cyclos4-ui i && cp ./config/configuration.ts ./node_modules/cyclos4-ui/src/environments && npm --prefix ./node_modules/cyclos4-ui run build && rm -r ./dist && mv -f ./node_modules/cyclos4-ui/dist ./dist && rm -r ./node_modules/cyclos4-ui/node_modules",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AdharaProjects/cyclos4-ui-server.git"
+  },
+  "author": "Jason Smythe @JasoonS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AdharaProjects/cyclos4-ui-server/issues"
+  },
+  "homepage": "https://github.com/AdharaProjects/cyclos4-ui-server#readme"
+}
